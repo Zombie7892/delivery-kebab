@@ -1,4 +1,5 @@
 const React = require('react');
+const calcCrow = require('../utils/distance');
 
 function Product({ product }) {
   return (
@@ -22,6 +23,11 @@ function Product({ product }) {
           Цена со скидкой:
           {product.currentPrice}
         </h5>
+        <h3>
+          До заказа:
+          {calcCrow(product.latitude, product.longitude, 55.797381, 37.80261)}
+          км
+        </h3>
         <button className="cardBtn" type="button" id={product.id}>
           Выкупить
         </button>

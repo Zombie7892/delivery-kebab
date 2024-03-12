@@ -1,4 +1,7 @@
-function calcCrow(lat1, lon1, lat2, lon2) {
+module.exports = function calcCrow(lat1, lon1, lat2, lon2) {
+  function toRad(Value) {
+    return Value * Math.PI / 180;
+  }
   const R = 6371; // km
   const dLat = toRad(lat2 - lat1);
   const dLon = toRad(lon2 - lon1);
@@ -12,8 +15,7 @@ function calcCrow(lat1, lon1, lat2, lon2) {
   return d;
 }
 
-function toRad(Value) {
-  return Value * Math.PI / 180;
-}
 
-console.log(calcCrow(55.717359, 37.895778, 33.520070, -101.869721));
+
+/* console.log(calcCrow(55.717359, 37.895778, 33.520070, -101.869721));
+ */
