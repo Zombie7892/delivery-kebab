@@ -2,9 +2,13 @@ const React = require("react");
 const Layout = require("./Layout");
 const Product = require("./Product");
 
-module.exports = function Home({ userId, login, products, seller }) {
+module.exports = function Home({
+  userId, login, products, seller,
+}) {
   return (
     <Layout login={login} seller={seller} userId={userId}>
+      <script defer src="/js/addOrder.js" />
+
       <img className="advertising" src="/assets/img/mas.jpg" />
       {login ? (
         <>

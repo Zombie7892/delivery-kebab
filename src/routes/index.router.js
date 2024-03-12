@@ -19,7 +19,7 @@ indexRouter.get('/', async (req, res) => {
   }
 });
 
-indexRouter.get('/cabinet/:id', checkUser, async (req, res) => {
+indexRouter.get('/cabinet/', checkUser, async (req, res) => {
   const { login, userId } = req.session;
   const user = await User.findOne({ where: { id: userId } });
   if (!user || user.id !== userId) {
@@ -27,8 +27,12 @@ indexRouter.get('/cabinet/:id', checkUser, async (req, res) => {
   } else {
     const products = await Product.findAll({ where: { userId } });
     const orders = await Order.findAll({
-      where: { userId },
-      include: [{ model: Product }],
+      include: [
+        {
+          model: Product,
+          where: { userId },
+        },
+      ],
     });
     renderTemplate(Cabinet, {
       login, userId, products, orders,

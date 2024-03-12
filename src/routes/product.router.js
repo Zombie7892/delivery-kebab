@@ -21,7 +21,7 @@ const NewProduct = require('../views/product/NewProduct');
 
 const { checkUser } = require('../middlewares/common');
 
-const { User } = require('../../db/models');
+const { User, Order } = require('../../db/models');
 const { Product } = require('../../db/models');
 
 productRouter.get('/new', async (req, res) => {
@@ -53,5 +53,34 @@ productRouter.post('/new', upload.single('photo'), async (req, res) => {
     console.log(error);
   }
 });
+
+productRouter.delete('/delete/:id', checkUser, async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Product.destroy({ where: { id } });
+    res.json({ success: true });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+productRouter.post('/order/:id', checkUser, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { userId } = req.session;
+    const order = await Order.findOne({
+      where: { userId, productId: Number(id) },
+    });
+    if (order) {
+      res.json({ err: 'Вы уже добавили этот товар в свой заказ!' });
+    } else {
+      await Order.create({ userId, productId: Number(id) });
+      res.json({ msg: 'Товар успешно добален в заказ!' });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 
 module.exports = productRouter;

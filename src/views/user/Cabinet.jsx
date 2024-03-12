@@ -4,6 +4,8 @@ const Layout = require("../Layout");
 module.exports = function Cabinet({ login, userId, products, orders }) {
   return (
     <Layout login={login}>
+      <script defer src="/js/deleteProduct.js" />
+
       <div>
         <div id="marginDiv">
           <h2>Пользователь: {login}</h2>
@@ -19,24 +21,23 @@ module.exports = function Cabinet({ login, userId, products, orders }) {
           </div>
         </div>
         <div>
+
           <h3 id="marginH">Добавленные заказы:</h3>
           <div className="catalogCards">
             {products.map((product) => (
-              <div className="card" id="styleForCardCabinet" key={product.id}>
+              <div className="card" key={product.id} id="styleForCardCabinet">
                 {/* <img className="card-img-top" src="#" alt="Фото товара" /> */}
                 <div className="card-body">
-                  <h3 className="card-title">{product.title}</h3>
-                  <h5 className="card-title" id="priceInProduct">
+                  <h3 className="card-title" >{product.title}</h3>
+                  <h5 className="card-title" id="priceInProduct" >
                     {product.firstPrice}
                   </h5>
-                  <h5 className="card-title">{product.currentPrice}</h5>
+                  <h5 className="card-title">
+                    {product.currentPrice}
+                  </h5>
                   {product.userId === userId ? (
-                    <button
-                      type="button"
-                      id={product.id}
-                      className="btn btn-outline-danger cardButton delete"
-                    >
-                      Удалить
+                    <button type="button" id={product.id} className="btn btn-outline-danger cardButton delete">
+                      удалить
                     </button>
                   ) : null}
                 </div>
@@ -46,7 +47,26 @@ module.exports = function Cabinet({ login, userId, products, orders }) {
         </div>
         <div>
           <h3>Активные заказы:</h3>
-          <div className="catalogCards">{/* карточки товаров */}</div>
+          <div className="catalogCards">
+            {orders.map((order) => (
+              <div className="card" key={order.id} style={{ width: '18rem' }}>
+                {/* <img className="card-img-top" src="#" alt="Фото товара" /> */}
+                <div className="card-body">
+                  <h3 className="card-title" style={{ color: '#DC143C' }}>{order.Product.title}</h3>
+                  <h5 className="card-title" style={{ textDecoration: 'line-through' }}>
+                    {order.Product.firstPrice}
+                  </h5>
+                  <h5 className="card-title">
+                    {order.Product.currentPrice}
+                  </h5>
+                  <button type="button" id={order.id} className="cardButton deleteOrder">
+                    Delete
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+
         </div>
       </div>
     </Layout>
