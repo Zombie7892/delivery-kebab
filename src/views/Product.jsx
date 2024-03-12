@@ -23,7 +23,7 @@ function Product({ product }) {
         </h5>
         <h3>
           До заказа:
-          {calcCrow(product.latitude, product.longitude, 55.797381, 37.80261)}
+          {product.distance}
           км
         </h3>
         <button className="cardBtn" type="button" id={product.id}>
