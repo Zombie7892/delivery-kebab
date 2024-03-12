@@ -15,6 +15,8 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     number: DataTypes.STRING,
     seller: DataTypes.BOOLEAN,
+    latitude: DataTypes.DOUBLE,
+    longitude: DataTypes.DOUBLE
   }, {
     sequelize,
     modelName: 'User',
