@@ -112,3 +112,12 @@ body {
 .form-input {
   min-width: 400px;
 }
+
+.catalogCards {
+  float: left;
+  display: flex;
+  flex-wrap: wrap;
+}
+.card {
+  margin: 2%;
+}
