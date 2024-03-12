@@ -11,8 +11,8 @@ body {
   margin: 10px;
 }
 
-
-.container, .newProductContainer {
+.container,
+.newProductContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,41 +22,56 @@ body {
   background-color: rgb(124, 175, 175);
 }
 
-
 .navbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgb(36, 112, 159);
-  box-shadow: 2px 10px 10px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 20px 20px 0 0;
-  height: 60px
+  margin: 0px;
+  padding: 0px;
+  background-color: #000000;
 }
 
-
-
-.navBtns {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  height: 70px;
+.ulNav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #111;
 }
 
-.navBtn {
-  background-color: antiquewhite;
-  color: black;
-  padding: 10px;
-  height: 80%;
-  border-radius: 10px;
-  border: 2px solid black;
+.navbarLi {
+  float: right;
 }
 
+.navbarLi a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
 
+.navbarLi a:hover {
+  background-color: #303030;
+  color: #dc143c;
+}
 
-.loginBox, #loginForm, .registerBox, #regForm, .newProductBox, #newProductForm {
+#navName {
+  color: #dc143c;
+  float: left;
+  margin: 0px;
+
+  padding-left: 4%;
+
+  padding-right: 30%;
+}
+.navStart {
+  width: 100%;
+}
+
+.loginBox,
+#loginForm,
+.registerBox,
+#regForm,
+.newProductBox,
+#newProductForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -64,7 +79,9 @@ body {
   gap: 20px;
 }
 
-#regForm, #loginForm, #newProductForm {
+#regForm,
+#loginForm,
+#newProductForm {
   gap: 10px;
   padding: 30px;
   box-shadow: 2px 10px 10px 1px rgba(0, 0, 0, 0.2);
@@ -73,7 +90,11 @@ body {
 }
 
 .regFormHeader {
-  background-image: linear-gradient(to left top, rgb(23, 20, 194), rgb(19, 87, 181));
+  background-image: linear-gradient(
+    to left top,
+    rgb(23, 20, 194),
+    rgb(19, 87, 181)
+  );
   box-shadow: 2px 10px 10px 1px rgba(13, 3, 122, 0.5);
   border-radius: 10px;
   width: 100%;
@@ -83,7 +104,9 @@ body {
   font-size: 25px;
 }
 
-.regBtn,.logBtn, .newProductSubmitBtn {
+.regBtn,
+.logBtn,
+.newProductSubmitBtn {
   background-color: brown;
   padding: 10px;
   border: none;
@@ -91,10 +114,10 @@ body {
   cursor: pointer;
 }
 
-.regMsg,.logMsg {
+.regMsg,
+.logMsg {
   margin-top: 20px;
 }
-
 
 .form-control {
   min-width: 300px;

@@ -1,33 +1,37 @@
-const React = require('react');
+const React = require("react");
 
 function Navbar({ login }) {
   return (
     <div className="navbar">
-      {login ? (
-        <nav className="navBtns">
-          <button type="submit" className="navBtn">
-            <a href="/" className="navLink">На главную</a>
-          </button>
-          <button type="submit" className="navBtn">
-            <a href="/user/my-orders/" className="navLink">Мои заказы</a>
-          </button>
-          <button type="submit" className="navBtn">
-            <a href="/user/logout" className="navLink">Выйти</a>
-          </button>
-        </nav>
-      ) : (
-        <nav className="navBtns">
-          <button type="submit" className="navBtn">
-            <a href="/" className="navLink">На главную</a>
-          </button>
-          <button type="submit" className="navBtn">
-            <a href="/user/register/" className="navLink">Регистрация</a>
-          </button>
-          <button type="submit" className="navBtn">
-            <a href="/user/login" className="navLink">Авторизоваться</a>
-          </button>
-        </nav>
-      )}
+      <nav className="navStart">
+        {login ? (
+          <ul className="ulNav">
+            <h1 id="navName">Delivery-kebab</h1>
+            <li className="navbarLi">
+              <a href="/user/logout">Выйти</a>
+            </li>{" "}
+            <li className="navbarLi">
+              <a href="/user/my-orders/">Мои заказы</a>
+            </li>
+            <li className="navbarLi">
+              <a href="/">На главную</a>
+            </li>
+          </ul>
+        ) : (
+          <ul className="ulNav">
+            <h1 id="navName">Delivery-kebab</h1>
+            <li className="navbarLi">
+              <a href="/user/register/">Регистрация</a>
+            </li>{" "}
+            <li className="navbarLi">
+              <a href="/user/login">Войти</a>
+            </li>
+            <li className="navbarLi">
+              <a href="/">На главную</a>
+            </li>{" "}
+          </ul>
+        )}
+      </nav>
     </div>
   );
 }
