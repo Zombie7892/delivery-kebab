@@ -6,7 +6,7 @@ module.exports = function NewProduct({ login }) {
     <Layout login={login}>
       <div className="newProductContainer">
         <div className="newProductBox">
-          <form method="POST" action="/product/new" id="newProductForm" className="newProductForm">
+          <form method="POST" action="/product/new" id="newProductForm" className="newProductForm" encType="multipart/form-data">
             <label htmlFor="nameInput" className="form-label">
               Название продукта
             </label>
@@ -37,15 +37,7 @@ module.exports = function NewProduct({ login }) {
               id="discount"
             />
 
-            {/* <label htmlFor="imageInput" className="form-label">
-              Image
-            </label>
-            <input
-              name="image"
-              type="text"
-              className="form-control"
-              id="imageInput"
-            /> */}
+            <input type="file" name="photo" />
 
             <button type="submit" className="newProductSubmitBtn">
               Добавить

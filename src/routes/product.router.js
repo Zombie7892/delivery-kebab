@@ -2,9 +2,21 @@ const { body, validationResult } = require('express-validator');
 
 const { Op } = require('sequelize');
 
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+  destination(req, file, cb) {
+    cb(null, './public/assets/img/');
+  },
+  filename(req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+
+const upload = multer({ storage });
+
 const productRouter = require('express').Router();
 const renderTemplate = require('../utils/renderTemplate');
-const Page404 = require('../views/Page404');
 const NewProduct = require('../views/product/NewProduct');
 
 const { checkUser } = require('../middlewares/common');
@@ -21,15 +33,22 @@ productRouter.get('/new', async (req, res) => {
   }
 });
 
-productRouter.post('/new', async (req, res) => {
+productRouter.post('/new', upload.single('photo'), async (req, res) => {
   try {
     const { login, userId } = req.session;
     const { title, firstPrice, discount } = req.body;
     const currentPrice = (firstPrice * (100 - discount)) / 100;
+    console.log(req.file);
+    if (req.file) {
+      const newProduct = await Product.create({
+        title, firstPrice, currentPrice, userId, photo: req.file.originalname,
+      });
+      return res.redirect('/');
+    }
     const newProduct = await Product.create({
-      title, firstPrice, currentPrice, userId,
+      title, firstPrice, currentPrice, userId, photo: 'default.jpeg',
     });
-    res.redirect('/');
+    return res.redirect('/');
   } catch (error) {
     console.log(error);
   }
