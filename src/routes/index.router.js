@@ -7,6 +7,7 @@ const Page404 = require('../views/Page404');
 const { User, Product } = require('../../db/models');
 
 indexRouter.get('/', async (req, res) => {
+
   const { login, userId } = req.session;
   const products = await Product.findAll({ raw: true });
   if (userId) {

@@ -1,12 +1,12 @@
 const React = require('react');
 const Layout = require('../Layout');
 
-module.exports = function NewProduct({login}) {
+module.exports = function NewProduct({ login }) {
   return (
     <Layout login={login}>
       <div className="newProductContainer">
         <div className="newProductBox">
-          <form action="" id="newProductForm" className="newProductForm">
+          <form method="POST" action="/product/new" id="newProductForm" className="newProductForm">
             <label htmlFor="nameInput" className="form-label">
               Название продукта
             </label>
@@ -17,9 +17,8 @@ module.exports = function NewProduct({login}) {
               id="titleInput"
             />
 
-
             <label htmlFor="firstPriceInput" className="form-label">
-              First price
+              Изначальная цена
             </label>
             <input
               name="firstPrice"
@@ -29,7 +28,7 @@ module.exports = function NewProduct({login}) {
             />
 
             <label htmlFor="discount" className="form-label">
-              Discount
+              Размер скидки
             </label>
             <input
               name="discount"
@@ -38,7 +37,7 @@ module.exports = function NewProduct({login}) {
               id="discount"
             />
 
-            <label htmlFor="imageInput" className="form-label">
+            {/* <label htmlFor="imageInput" className="form-label">
               Image
             </label>
             <input
@@ -46,7 +45,7 @@ module.exports = function NewProduct({login}) {
               type="text"
               className="form-control"
               id="imageInput"
-            />
+            /> */}
 
             <button type="submit" className="newProductSubmitBtn">
               Добавить
