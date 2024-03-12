@@ -1,8 +1,9 @@
 const React = require('react');
 const Navbar = require('./Navbar');
 
-
-module.exports = function Layout({ children, login }) {
+module.exports = function Layout({
+  children, login, seller, userId,
+}) {
   return (
     <html lang="en">
       <head>
@@ -21,8 +22,8 @@ module.exports = function Layout({ children, login }) {
       </head>
       <header />
       <body>
-        <Navbar login={login} />
-        
+        <Navbar login={login} seller={seller} userId={userId} />
+
         {children}
       </body>
     </html>
