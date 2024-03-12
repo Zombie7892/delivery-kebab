@@ -6,6 +6,7 @@ const path = require('path');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 
+const productRouter = require('./routes/product.router');
 const userRouter = require('./routes/user.router');
 const indexRouter = require('./routes/index.router');
 
@@ -36,6 +37,7 @@ app.use(express.json());
 app.use(express.static(path.join(process.cwd(), 'public')));
 dbConnectionCheck();
 
+app.use('/product', productRouter);
 app.use('/user', userRouter);
 app.use('/', indexRouter);
 
