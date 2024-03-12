@@ -4,12 +4,13 @@ const renderTemplate = require('../utils/renderTemplate');
 const Home = require('../views/Home');
 const Page404 = require('../views/Page404');
 
-const { User } = require('../../db/models');
+const { User, Product } = require('../../db/models');
 
 
 indexRouter.get('/', async (req, res) => {
   const { login } = req.session;
-  renderTemplate(Home, { login }, res);
+  const products = await Product.findAll()
+  renderTemplate(Home, { login, products }, res);
 });
 
 indexRouter.get('/404', (req, res) => {
