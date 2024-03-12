@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(238, 233, 233);
+  font-family: monospace;
+  margin: 10px;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 800px;
+  border: 1px solid black;
+  background-color: rgb(124, 175, 175);
+}
+
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(36, 112, 159);
+  box-shadow: 2px 10px 10px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 20px 20px 0 0;
+  height: 60px
+}
+
+
+
+.navBtns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  height: 70px;
+}
+
+.navBtn {
+  background-color: antiquewhite;
+  color: black;
+  padding: 10px;
+  height: 80%;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+
+
+.loginBox, #loginForm, .registerBox, #regForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+#regForm, #loginForm {
+  gap: 10px;
+  padding: 30px;
+  box-shadow: 2px 10px 10px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: rgb(52, 144, 144);
+}
+
+.regFormHeader {
+  background-image: linear-gradient(to left top, rgb(23, 20, 194), rgb(19, 87, 181));
+  box-shadow: 2px 10px 10px 1px rgba(13, 3, 122, 0.5);
+  border-radius: 10px;
+  width: 100%;
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+}
+
+.regBtn,.logBtn {
+  background-color: brown;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.regMsg,.logMsg {
+  margin-top: 20px;
+}
+
+
+.form-control {
+  min-width: 300px;
+  height: 30px;
+  border: 0.5px lightgrey solid;
+  box-shadow: 2px 2px 10px 1px rgba(12, 37, 181, 0.5);
+  padding: 5px;
+}
+
+.userName {
+  font-weight: bold;
+  color: rgb(95, 71, 11);
+}
+
+.form-input {
+  min-width: 400px;
+}
