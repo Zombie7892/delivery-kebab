@@ -13,13 +13,13 @@ module.exports = function Cabinet({
         </h2>
 
         <div>
-          <a href="/product/new" type="button" className="btn btn-outline-info">
+          <a href="/product/new" type="button" className="btn btn-outline-warning">
             Добавить новый заказ
           </a>
         </div>
         <div>
           <h3>Добавленные заказы:</h3>
-          <div className="catalogCards" style={{ marginTop: '1%' }}>
+          <div className="catalogCards" >
             {products.map((product) => (
                 <div className="card" key={product.id} style={{ width: '18rem' }}>
                   {/* <img className="card-img-top" src="#" alt="Фото товара" /> */}
@@ -44,7 +44,7 @@ module.exports = function Cabinet({
         </div>
         <div>
           <h3>Активные заказы:</h3>
-          <div className="catalogCards" style={{ marginTop: '1%' }}>
+          <div className="catalogCards" >
             {/* карточки товаров */}
           </div>
         </div>

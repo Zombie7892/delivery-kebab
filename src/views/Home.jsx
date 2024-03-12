@@ -5,6 +5,7 @@ const Product = require('./Product');
 module.exports = function Home({ userId, login, products, seller }) {
   return (
     <Layout login={login} seller={seller} userId={userId}>
+      <img className='advertising' src='/assets/img/mas.jpg'/>
       {login ? (
         <>
           <h3>
@@ -12,7 +13,7 @@ module.exports = function Home({ userId, login, products, seller }) {
             {login}
           </h3>
           {seller ? null : (
-            <div className="catalogCards" style={{ marginTop: '1%' }}>
+            <div className="catalogCards">
               {products.reverse().map((product) => (
                 <Product key={product.id} product={product} />
               ))}
