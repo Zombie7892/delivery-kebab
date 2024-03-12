@@ -9,7 +9,7 @@ const { User, Product } = require('../../db/models');
 
 indexRouter.get('/', async (req, res) => {
   const { login } = req.session;
-  const products = await Product.findAll()
+  const products = await Product.findAll({ raw:true })
   renderTemplate(Home, { login, products }, res);
 });
 

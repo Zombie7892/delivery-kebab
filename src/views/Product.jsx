@@ -15,7 +15,6 @@ function Product({ product }) {
         </h5>
         <h5
           className="card-title"
-          style={{ textDecoration: 'line-through' }}
         >
           {product.currentPrice}
         </h5>

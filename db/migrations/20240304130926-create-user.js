@@ -24,9 +24,11 @@ module.exports = {
       },
       seller: {
         type: Sequelize.BOOLEAN,
+        allowNull: false,
       },
       number: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
