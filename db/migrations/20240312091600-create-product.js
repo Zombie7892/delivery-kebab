@@ -34,11 +34,11 @@ module.exports = {
       },
       latitude: {
         type: Sequelize.DOUBLE,
-        allowNull: false,
+        /* allowNull: false, */
       },
       longitude: {
         type: Sequelize.DOUBLE,
-        allowNull: false,
+        /* allowNull: false, */
       },
       createdAt: {
         allowNull: false,
