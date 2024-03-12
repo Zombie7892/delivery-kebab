@@ -1,17 +1,14 @@
-const React = require('react');
-const Layout = require('./Layout');
-const Product = require('./Product');
+const React = require("react");
+const Layout = require("./Layout");
+const Product = require("./Product");
 
 module.exports = function Home({ userId, login, products, seller }) {
   return (
     <Layout login={login} seller={seller} userId={userId}>
-      <img className='advertising' src='/assets/img/mas.jpg'/>
+      <img className="advertising" src="/assets/img/mas.jpg" />
       {login ? (
         <>
-          <h3>
-            Hello
-            {login}
-          </h3>
+          <h3>Добрый день, {login}</h3>
           {seller ? null : (
             <div className="catalogCards">
               {products.reverse().map((product) => (
@@ -21,7 +18,7 @@ module.exports = function Home({ userId, login, products, seller }) {
           )}
         </>
       ) : (
-        <h3>Hello guest, register to see more</h3>
+        <h3>Зарегистрируйтесь, чтобы увидеть больше</h3>
       )}
     </Layout>
   );

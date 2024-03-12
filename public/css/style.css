@@ -66,6 +66,12 @@ body {
   width: 100%;
 }
 
+.advertising {
+  width: 60%;
+  height: auto;
+  margin: 1% 20%;
+}
+
 .loginBox,
 #loginForm,
 .registerBox,
@@ -144,4 +150,21 @@ body {
 }
 .card {
   margin: 2%;
+}
+
+#priceInProduct {
+  text-decoration: line-through;
+  color: #dc143c;
+}
+
+#styleForCardCabinet {
+  width: 18rem;
+}
+
+#marginDiv{
+  margin: 1% ;
+}
+
+#marginH{
+  margin-left: 1%;
 }
