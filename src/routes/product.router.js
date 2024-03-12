@@ -21,5 +21,18 @@ productRouter.get('/new', async (req, res) => {
   }
 });
 
+productRouter.post('/new', async (req, res) => {
+  try {
+    const { login, userId } = req.session;
+    const { title, firstPrice, discount } = req.body;
+    const currentPrice = (firstPrice * (100 - discount)) / 100;
+    const newProduct = await Product.create({
+      title, firstPrice, currentPrice, userId,
+    });
+    res.redirect('/');
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 module.exports = productRouter;
