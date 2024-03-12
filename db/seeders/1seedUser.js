@@ -10,6 +10,8 @@ module.exports = {
         email: '1@1.com',
         seller: true,
         number: '+71111111111',
+        latitude: 55.797381,
+        longitude: 37.802610,
       },
       {
         login: 'User2',
@@ -17,6 +19,8 @@ module.exports = {
         email: '2@2.com',
         seller: false,
         number: '+72222222222',
+        latitude: 55.677562,
+        longitude: 37.774350,
       },
       {
         login: 'User3',
@@ -24,6 +28,8 @@ module.exports = {
         email: '3@3.com',
         seller: true,
         number: '+7333333333',
+        latitude: 55.554084,
+        longitude: 37.467014,
       },
       {
         login: 'User4',
@@ -31,6 +37,8 @@ module.exports = {
         email: '4@4.com',
         seller: false,
         number: '+7444444444',
+        latitude: 55.723970,
+        longitude: 37.575452,
       },
       {
         login: 'User5',
@@ -38,6 +46,8 @@ module.exports = {
         email: '5@5.com',
         seller: true,
         number: '+7555555555',
+        latitude: 55.846770,
+        longitude: 37.356111,
       },
     ], {});
   },
