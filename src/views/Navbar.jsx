@@ -6,34 +6,34 @@ function Navbar({ login, seller, userId }) {
       <nav className="navStart">
         {login ? (
           <>
-           {seller ? (
-            <ul className="ulNav">
-              <h1 id="navName">Delivery-kebab</h1>
-              <li className="navbarLi">
-                <a href="/user/logout">Выйти</a>
-              </li>
-              {' '}
-              <li className="navbarLi">
-                <a href={`/cabinet/${userId}`}>Кабинет</a>
-              </li>
-              <li className="navbarLi">
-                <a href="/">На главную</a>
-              </li>
-            </ul>
+            {seller ? (
+              <ul className="ulNav">
+                <h1 id="navName">Delivery-kebab</h1>
+                <li className="navbarLi">
+                  <a href="/user/logout">Выйти</a>
+                </li>
+                {' '}
+                <li className="navbarLi">
+                  <a href="/cabinet">Кабинет</a>
+                </li>
+                <li className="navbarLi">
+                  <a href="/">На главную</a>
+                </li>
+              </ul>
             ) : (
-            <ul className="ulNav">
-              <h1 id="navName">Delivery-kebab</h1>
-              <li className="navbarLi">
-                <a href="/user/logout">Выйти</a>
-              </li>
-              {' '}
-              <li className="navbarLi">
-                <a href="/user/my-orders/">Мои заказы</a>
-              </li>
-              <li className="navbarLi">
-                <a href="/">На главную</a>
-              </li>
-            </ul>
+              <ul className="ulNav">
+                <h1 id="navName">Delivery-kebab</h1>
+                <li className="navbarLi">
+                  <a href="/user/logout">Выйти</a>
+                </li>
+                {' '}
+                <li className="navbarLi">
+                  <a href="/user/my-orders/">Мои заказы</a>
+                </li>
+                <li className="navbarLi">
+                  <a href="/">На главную</a>
+                </li>
+              </ul>
             )}
           </>
         ) : (

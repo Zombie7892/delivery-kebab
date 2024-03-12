@@ -47,7 +47,23 @@ module.exports = function Cabinet({
         <div>
           <h3>Активные заказы:</h3>
           <div className="catalogCards">
-            {/* карточки товаров */}
+            {orders.map((order) => (
+              <div className="card" key={order.id} style={{ width: '18rem' }}>
+                {/* <img className="card-img-top" src="#" alt="Фото товара" /> */}
+                <div className="card-body">
+                  <h3 className="card-title" style={{ color: '#DC143C' }}>{order.Product.title}</h3>
+                  <h5 className="card-title" style={{ textDecoration: 'line-through' }}>
+                    {order.Product.firstPrice}
+                  </h5>
+                  <h5 className="card-title">
+                    {order.Product.currentPrice}
+                  </h5>
+                  <button type="button" id={order.id} className="cardButton deleteOrder">
+                    Delete
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

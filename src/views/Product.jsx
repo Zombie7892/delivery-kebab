@@ -25,6 +25,8 @@ function Product({ product }) {
         <button className="cardBtn" type="button" id={product.id}>
           Выкупить
         </button>
+        <h5 className="resMsg" id={`resMsg_${product.id}`} />
+        <h5 className="errMsg" id={`errMsg_${product.id}`} />
       </div>
     </div>
   );
