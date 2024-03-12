@@ -1,7 +1,7 @@
 const React = require("react");
 const Layout = require("./Layout");
 
-module.exports = function Home({ login }) {
+module.exports = function Cabinet({ login }) {
   return (
     <Layout login={login}>
       <div>
