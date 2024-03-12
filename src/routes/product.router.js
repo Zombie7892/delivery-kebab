@@ -82,5 +82,15 @@ productRouter.post('/order/:id', checkUser, async (req, res) => {
   }
 });
 
+productRouter.delete('/order/delete/:id', checkUser, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { userId } = req.session;
+    await Order.destroy({ where: { id, userId } });
+    res.json({ success: true });
+  } catch (error) {
+    console.log(error, 'ошиибка при удалении из записей');
+  }
+});
 
 module.exports = productRouter;

@@ -1,14 +1,19 @@
-const React = require("react");
-const Layout = require("../Layout");
+const React = require('react');
+const Layout = require('../Layout');
 
-module.exports = function Cabinet({ login, userId, products, orders }) {
+module.exports = function Cabinet({
+  login, userId, products, orders, seller,
+}) {
   return (
-    <Layout login={login}>
+    <Layout login={login} seller={seller}>
       <script defer src="/js/deleteProduct.js" />
 
       <div>
         <div id="marginDiv">
-          <h2>Пользователь: {login}</h2>
+          <h2>
+            Пользователь:
+            {login}
+          </h2>
 
           <div>
             <a
@@ -17,7 +22,8 @@ module.exports = function Cabinet({ login, userId, products, orders }) {
               className="btn btn-outline-warning"
             >
               Добавить новый заказ
-            </a>{" "}
+            </a>
+            {' '}
           </div>
         </div>
         <div>
@@ -28,8 +34,8 @@ module.exports = function Cabinet({ login, userId, products, orders }) {
               <div className="card" key={product.id} id="styleForCardCabinet">
                 {/* <img className="card-img-top" src="#" alt="Фото товара" /> */}
                 <div className="card-body">
-                  <h3 className="card-title" >{product.title}</h3>
-                  <h5 className="card-title" id="priceInProduct" >
+                  <h3 className="card-title">{product.title}</h3>
+                  <h5 className="card-title" id="priceInProduct">
                     {product.firstPrice}
                   </h5>
                   <h5 className="card-title">
@@ -49,19 +55,19 @@ module.exports = function Cabinet({ login, userId, products, orders }) {
           <h3>Активные заказы:</h3>
           <div className="catalogCards">
             {orders.map((order) => (
-              <div className="card" key={order.id} style={{ width: '18rem' }}>
+              <div className="card" key={order.id} id="styleForCardCabinet">
                 {/* <img className="card-img-top" src="#" alt="Фото товара" /> */}
                 <div className="card-body">
-                  <h3 className="card-title" style={{ color: '#DC143C' }}>{order.Product.title}</h3>
-                  <h5 className="card-title" style={{ textDecoration: 'line-through' }}>
+                  <h3 className="card-title">{order.Product.title}</h3>
+                  <h5 className="card-title" id="priceInProduct">
                     {order.Product.firstPrice}
                   </h5>
                   <h5 className="card-title">
                     {order.Product.currentPrice}
                   </h5>
-                  <button type="button" id={order.id} className="cardButton deleteOrder">
+                  {/* <button type="button" id={order.id} className="btn btn-outline-danger cardButton deleteOrder">
                     Delete
-                  </button>
+                  </button> */}
                 </div>
               </div>
             ))}

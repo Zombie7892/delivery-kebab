@@ -28,7 +28,7 @@ function Navbar({ login, seller, userId }) {
                 </li>
                 {' '}
                 <li className="navbarLi">
-                  <a href="/user/my-orders/">Мои заказы</a>
+                  <a href="/client">Мои заказы</a>
                 </li>
                 <li className="navbarLi">
                   <a href="/">На главную</a>
