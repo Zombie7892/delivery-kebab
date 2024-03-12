@@ -121,12 +121,12 @@ body {
   width: 100%;
   font-size: 18px;
   color: #6c6c6c;
-  margin-top: 4%;
+  margin-top: 6%;
 }
 
 .logBtn,
 .regBtn {
-  margin-top: 15px;
+  margin-top: 7%;
 }
 
 .newProductSubmitBtn {
