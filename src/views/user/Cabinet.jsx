@@ -6,6 +6,8 @@ module.exports = function Cabinet({
 }) {
   return (
     <Layout login={login}>
+      <script defer src="/js/deleteProduct.js" />
+
       <div>
         <h2>
           Пользователь:
@@ -19,32 +21,32 @@ module.exports = function Cabinet({
         </div>
         <div>
           <h3>Добавленные заказы:</h3>
-          <div className="catalogCards" >
+          <div className="catalogCards">
             {products.map((product) => (
-                <div className="card" key={product.id} style={{ width: '18rem' }}>
-                  {/* <img className="card-img-top" src="#" alt="Фото товара" /> */}
-                  <div className="card-body">
-                    <h3 className="card-title" style={{ color: '#DC143C' }}>{product.title}</h3>
-                    <h5 className="card-title" style={{ textDecoration: 'line-through' }}>
-                      {product.firstPrice}
-                    </h5>
-                    <h5 className="card-title">
-                      {product.currentPrice}
-                    </h5>
-                    {product.userId === userId ? (
-                      <button type="button" id={product.id} className="cardButton delete">
-                        Delete
-                      </button>
-                    ) : null}
-                  </div>
+              <div className="card" key={product.id} style={{ width: '18rem' }}>
+                {/* <img className="card-img-top" src="#" alt="Фото товара" /> */}
+                <div className="card-body">
+                  <h3 className="card-title" style={{ color: '#DC143C' }}>{product.title}</h3>
+                  <h5 className="card-title" style={{ textDecoration: 'line-through' }}>
+                    {product.firstPrice}
+                  </h5>
+                  <h5 className="card-title">
+                    {product.currentPrice}
+                  </h5>
+                  {product.userId === userId ? (
+                    <button type="button" id={product.id} className="cardButton delete">
+                      Delete
+                    </button>
+                  ) : null}
                 </div>
+              </div>
             ))}
 
           </div>
         </div>
         <div>
           <h3>Активные заказы:</h3>
-          <div className="catalogCards" >
+          <div className="catalogCards">
             {/* карточки товаров */}
           </div>
         </div>

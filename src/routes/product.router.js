@@ -54,4 +54,14 @@ productRouter.post('/new', upload.single('photo'), async (req, res) => {
   }
 });
 
+productRouter.delete('/delete/:id', checkUser, async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Product.destroy({ where: { id } });
+    res.json({ success: true });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 module.exports = productRouter;
