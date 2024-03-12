@@ -41,7 +41,7 @@ userRouter.post(
         return res.status(400).json({ err: errors.array() });
       }
       const {
-        email, password, login,
+        email, password, login, number, seller,
       } = req.body;
       const user = await User.findOne({
         where: {
@@ -61,14 +61,22 @@ userRouter.post(
           email,
           password: hash,
           login,
+          seller,
+          number,
         });
         req.session.login = newUser.login;
+        req.session.seller = newUser.seller;
+        req.session.email = newUser.email;
+        req.session.userId = newUser.id;
+        req.session.number = newUser.number;
+
         req.session.save(() => {
           res.status(201).json({ success: 'Новый профиль успешно создан' });
         });
       }
     } catch (error) {
-      renderTemplate(Page404, { error }, res);
+      console.log(error);
+      // renderTemplate(Page404, { error }, res);
     }
   },
 );
@@ -97,6 +105,8 @@ userRouter.post('/login', async (req, res) => {
       const checkPass = await bcrypt.compare(password, user.password);
       if (checkPass) {
         req.session.login = user.login;
+        req.session.email = user.email;
+        req.session.userId = user.id;
         req.session.save(() => {
           res
             .status(200)
@@ -110,6 +120,5 @@ userRouter.post('/login', async (req, res) => {
     renderTemplate(Page404, { error }, res);
   }
 });
-
 
 module.exports = userRouter;
