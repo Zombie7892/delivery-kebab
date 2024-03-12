@@ -8,6 +8,8 @@ module.exports = {
         firstPrice: 500,
         currentPrice: 250,
         userId: 1,
+        latitude: 55.715471,
+        longitude: 37.900058,
       },
       {
         title: 'Донер в лепешке',
@@ -15,6 +17,8 @@ module.exports = {
         firstPrice: 450,
         currentPrice: 225,
         userId: 1,
+        latitude: 55.587666,
+        longitude: 37.653174,
       },
       {
         title: 'Шаурма BBQ',
@@ -22,6 +26,8 @@ module.exports = {
         firstPrice: 400,
         currentPrice: 200,
         userId: 1,
+        latitude: 55.722470,
+        longitude: 37.438551,
       },
       {
         title: 'Шаурма Сырная',
@@ -29,6 +35,8 @@ module.exports = {
         firstPrice: 350,
         currentPrice: 175,
         userId: 2,
+        latitude: 55.800507,
+        longitude: 37.548447,
       },
       {
         title: 'Шаурма фирменная',
@@ -36,6 +44,8 @@ module.exports = {
         firstPrice: 350,
         currentPrice: 175,
         userId: 3,
+        latitude: 55.763726,
+        longitude: 37.635577,
       },
     ], {});
   },

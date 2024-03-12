@@ -19,7 +19,9 @@ module.exports = (sequelize, DataTypes) => {
     photo: DataTypes.STRING,
     firstPrice: DataTypes.INTEGER,
     currentPrice: DataTypes.INTEGER,
-    userId: DataTypes.INTEGER
+    userId: DataTypes.INTEGER,
+    latitude: DataTypes.DOUBLE,
+    longitude: DataTypes.DOUBLE
   }, {
     sequelize,
     modelName: 'Product',
