@@ -7,6 +7,7 @@ logForm.addEventListener('submit', async (event) => {
   const res = Object.fromEntries(data);
   if (!res.email || !res.password) {
     logMsg.innerText = 'Заполните все поля!';
+    logMsg.style.color = 'red';
   } else {
     const response = await fetch('/user/login', {
       method: 'POST',

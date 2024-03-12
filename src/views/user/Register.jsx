@@ -1,55 +1,52 @@
-const React = require('react');
+const React = require("react");
 
-const Layout = require('../Layout');
+const Layout = require("../Layout");
 
 module.exports = function Register({ login }) {
   return (
     <Layout>
-      <div className="container">
-        <div className="registerBox">
+      <div className="styleContainer">
+        <div className="container">
+          <h3 className="regFormHeader">Регистрация</h3>
           <form id="regForm">
-            <div className="regFormHeader">Регистрация</div>
-            <label htmlFor="emailInput" className="form-label">
-              Введите ваш адрес электронной почты:
-            </label>
+            <label htmlFor="emailInput" className="form-label"></label>
             <input
               name="email"
               type="text"
               className="form-control"
+              autoComplete="off"
               id="emailInput"
-              placeholder="Введите действующий e-mail"
+              placeholder="Почта*"
             />
 
-            <label htmlFor="loginInput" className="form-label">
-              Введите ваш логин/имя пользователя:
-            </label>
+            <label htmlFor="loginInput" className="form-label"></label>
             <input
               name="login"
               type="text"
               className="form-control"
+              autoComplete="off"
               id="loginInput"
-              placeholder="Введите логин"
+              placeholder="Имя*"
             />
 
-            <label htmlFor="passwordInput" className="form-label">
-              Придумайте пароль (От 4 символов)
-            </label>
+            <label htmlFor="passwordInput" className="form-label"></label>
             <input
               name="password"
               type="password"
               className="form-control"
+              autoComplete="off"
               id="passwordInput"
-              placeholder="Введите пароль"
+              placeholder="Пароль*"
             />
-            <label htmlFor="numberInput" className="form-label">
-              Введите ваш номер:
-            </label>
+            <label htmlFor="numberInput" className="form-label"></label>
             <input
               name="number"
               type="text"
               className="form-control"
+              autoComplete="off"
               id="numberInput"
-              placeholder="+7 (999) 123-23-23"
+              placeholder="Номер телефона*"
+              // placeholder="+7 (999) 123-23-23"
             />
 
             <select
@@ -58,20 +55,21 @@ module.exports = function Register({ login }) {
               name="seller"
             >
               <option selected disabled>
-                Укажите роль
+                Выбрать роль
               </option>
+              <option value="true">Курьер</option>
               <option value="false">Покупатель</option>
-              <option value="true">Продавец</option>
             </select>
 
-            <button type="submit" className="regBtn">
-              Зарегистрировать аккаунт
+            <button type="submit" className="btn btn-outline-danger regBtn">
+              Зарегистрироваться
             </button>
           </form>
 
           <h3 className="regMsg"> </h3>
         </div>
       </div>
+      <div id="blackBox">fdv</div>
       <script defer src="/js/registration.js" />
     </Layout>
   );
