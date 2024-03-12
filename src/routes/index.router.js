@@ -16,8 +16,8 @@ indexRouter.get('/', async (req, res) => {
   const products = await Product.findAll({ raw: true });
   if (userId) {
     const user = await User.findOne({ where: { id: userId }, raw: true });
-    const finalProducts = products.map((product) => product.distance = calcCrow(product.latitude, product.longitude, user.latitude, user.longitude));
-    const sortedByDistanceProducts = products.sort((a, b) => b.distance -a.distance);
+    const finalProducts = products.map((product) => product.distance = calcCrow(product.latitude, product.longitude, user.latitude, user.longitude).time);
+    const sortedByDistanceProducts = products.sort((a, b) => b.distance - a.distance);
     renderTemplate(Home, { login, products: sortedByDistanceProducts, seller: user.seller }, res);
   } else {
     renderTemplate(Home, { userId, login, products }, res);

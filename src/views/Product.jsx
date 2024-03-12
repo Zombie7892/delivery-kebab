@@ -22,9 +22,9 @@ function Product({ product }) {
           ₽
         </h5>
         <h3>
-          До заказа:
+          Время доставки:
           {product.distance}
-          км
+          мин.
         </h3>
         <button className="cardBtn" type="button" id={product.id}>
           Выкупить
