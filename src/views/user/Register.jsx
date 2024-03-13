@@ -1,6 +1,6 @@
-const React = require('react');
+const React = require("react");
 
-const Layout = require('../Layout');
+const Layout = require("../Layout");
 
 module.exports = function Register({ login }) {
   return (
@@ -38,14 +38,16 @@ module.exports = function Register({ login }) {
               id="passwordInput"
               placeholder="Пароль от 4-х символов*"
             />
-            <label htmlFor="numberInput" className="form-label">Номер телефона в формате +7 (999) 123-23-23:</label>
+            <label htmlFor="numberInput" className="form-label">
+              Номер телефона:
+            </label>
             <input
               name="number"
               type="text"
               className="form-control"
               autoComplete="off"
               id="numberInput"
-              placeholder="Телефон*"
+              placeholder="+7(999) 123-23-23*"
             />
 
             <select
@@ -82,7 +84,7 @@ module.exports = function Register({ login }) {
           <h3 className="regMsg"> </h3>
         </div>
       </div>
-      <div id="blackBox">fdv</div>
+      <div id="blackBox"></div>
       <script defer src="/js/registration.js" />
     </Layout>
   );

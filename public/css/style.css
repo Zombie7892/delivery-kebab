@@ -108,7 +108,7 @@ body {
 }
 
 .styleContainer {
-  height: 1100px;
+  height: 1000px;
   background-color: rgb(23, 23, 23);
   background-image: url(https://img.freepik.com/free-photo/crop-plate-with-salad_23-2147753678.jpg?t=st=1710260237~exp=1710263837~hmac=b1edcab1cb720582757028a3bfe77c24e4a578fa574bcde9ba7a51daa26cd122&w=1380);
   background-size: cover;
@@ -134,7 +134,17 @@ body {
 .centerList {
   width: 60%;
   height: auto;
-  margin: auto;
+  margin-left: 20%;
+  background-color: rgb(255, 238, 218);
+  padding: 2%;
+  border-radius: 15px;
+  opacity: 0.6;
+}
+
+.centerListSeller{
+  width: 60%;
+  height: auto;
+  margin-left: 15%;
   background-color: rgb(255, 238, 218);
   padding: 2%;
   border-radius: 15px;
@@ -142,9 +152,10 @@ body {
 }
 
 .centerListMenu {
-  width: 60%;
+  width: 100%;
   height: auto;
   margin: auto;
+  margin-left: 5%;
 }
 
 #bigRedText {
@@ -235,8 +246,12 @@ body {
 #map {
   text-align: center;
   padding-top: 1%;
-  margin: auto;
+  margin-left: 15%;
   border-radius: 15px;
-  width: 100%;
+  width: 60%;
   height: 500px;
+}
+
+#marginPhoto{
+  margin: 5% 0;
 }
