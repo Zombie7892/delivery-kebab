@@ -41,7 +41,7 @@ userRouter.post(
         return res.status(400).json({ err: errors.array() });
       }
       const {
-        email, password, login, number, seller,
+        email, password, login, number, seller, latitude, longitude
       } = req.body;
       const user = await User.findOne({
         where: {
@@ -63,6 +63,8 @@ userRouter.post(
           login,
           seller,
           number,
+          latitude, 
+          longitude
         });
         req.session.login = newUser.login;
         req.session.seller = newUser.seller;
