@@ -58,7 +58,7 @@ module.exports = function Home({ userId, login, products, seller, userCoord }) {
                     {products.reverse().map((product) => (
                       <Product key={product.id} product={product} />
                     ))}
-                  </div>
+                  </div>{" "}
                 </>
               )}
             </div>
