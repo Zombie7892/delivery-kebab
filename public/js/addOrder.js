@@ -1,6 +1,7 @@
-console.log('reeecord');
+
 
 const catalogCards = document.querySelector('.catalogCards');
+const mapDiv = document.querySelector('#map');
 
 catalogCards.addEventListener('click', async (event) => {
   if (event.target.classList.contains('cardBtn')) {
@@ -27,6 +28,21 @@ catalogCards.addEventListener('click', async (event) => {
           errMsg.innerText = '';
         }, 800);
       }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+});
+
+
+mapDiv.addEventListener('click', async (event) => {
+  if (event.target.classList.contains('cardBtn')) {
+    event.preventDefault();
+    try {
+      const response = await fetch(`/product/order/${event.target.id}`, {
+        method: 'POST',
+      });
+      const result = await response.json();
     } catch (error) {
       console.log(error);
     }
