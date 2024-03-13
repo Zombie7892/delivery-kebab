@@ -234,3 +234,18 @@ body {
   color: #dc143c;
   text-align: center;
 }
+
+#map {
+  /* width: 60%; */
+  /* height: auto; */
+  text-align: center;
+  /* float: unset; */
+  /* margin-top: 2%; */
+  padding-top: 2%;
+  margin: auto;
+  border-radius: 15px;
+  /* width: 900px; */
+  width: 70%;
+  height: 500px;
+  /* margin: 2%; */
+}
