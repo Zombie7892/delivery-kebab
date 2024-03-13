@@ -55,6 +55,7 @@ function calcCrow(lat1, lon1, lat2, lon2, speed = 20) {
     distance: d.toFixed(1),
     timeHours,
     timeMinutes,
+    time,
   };
 }
 

@@ -1,9 +1,9 @@
-const React = require("react");
-const calcCrow = require("../utils/distance");
+const React = require('react');
+const calcCrow = require('../utils/distance');
 
 function Product({ product }) {
   return (
-    <div className="card" style={{ width: "18rem" }}>
+    <div className="card" style={{ width: '18rem' }}>
       {/* <img className="card-img-top" src="#" alt="Фото товара" /> */}
       <div className="card-body">
         <img
@@ -13,12 +13,17 @@ function Product({ product }) {
         />
         <h3 className="card-title">{product.title}</h3>
         <h5 className="card-title" id="priceInProduct">
-          {product.firstPrice}₽
+          {product.firstPrice}
+          ₽
         </h5>
-        <h4 className="card-title">{product.currentPrice}₽</h4>
+        <h4 className="card-title">
+          {product.currentPrice}
+          ₽
+        </h4>
         <h5>
-          Время доставки: {product.distance}
-          мин.
+          Время доставки:
+          {' '}
+          {product.distance < 60 ? `${product.distance} мин.` : `${Math.floor(product.distance / 60)} ч ${product.distance % 60} мин.`}
         </h5>
         <button
           className="btn btn-outline-danger cardBtn"
