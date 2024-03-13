@@ -33,7 +33,7 @@ module.exports = function Cabinet({
             {products.map((product) => (
               <div className="card" key={product.id} id="styleForCardCabinet">
                 {/* <img className="card-img-top" src="#" alt="Фото товара" /> */}
-                <div className="card-body">
+                <div className="card-body" id={`p${product.id}`}>
                   <h3 className="card-title">{product.title}</h3>
                   <h5 className="card-title" id="priceInProduct">
                     {product.firstPrice}
@@ -54,7 +54,7 @@ module.exports = function Cabinet({
         <div>
 
           <h3>Активные заказы:</h3>
-          <div className="catalogCards">
+          <div className="catalogCards Order">
             {orders.map((order) => (
               <div className="card" key={order.id} id="styleForCardCabinet">
                 {/* <img className="card-img-top" src="#" alt="Фото товара" /> */}
@@ -68,14 +68,17 @@ module.exports = function Cabinet({
                   <h7 className="card-title">
                     {order.User.number}
                   </h7>
-                  <a href="/product/show">
+                  <a href={`/product/show/${order.id}`}>
                     {' '}
                     <button type="button" className="btn btn-outline-warning">
                       Показать маршрут
                     </button>
                     {' '}
-
                   </a>
+                  <button id={order.id} type="button" className="btn btn-outline-warning delivered">
+                    Доставлено
+                  </button>
+
                 </div>
               </div>
             ))}
