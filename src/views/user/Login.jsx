@@ -29,7 +29,7 @@ module.exports = function Login({ login }) {
                 id="passwordInput"
                 placeholder="Пароль*"
               />
-            
+
               <button type="submit" className="btn btn-outline-danger logBtn">
                 Войти
               </button>
@@ -39,7 +39,7 @@ module.exports = function Login({ login }) {
           </div>
         </div>
       </div>
-      <div id="blackBox">fdv</div>
+      <div id="blackBox"></div>
       <script defer src="/js/login.js" />
     </Layout>
   );
