@@ -256,3 +256,13 @@ body {
 #marginPhoto {
   margin: 2% 0;
 }
+
+.routeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+  border: 1px solid rgb(105, 98, 98);
+  border-radius: 15px;
+}

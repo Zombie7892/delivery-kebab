@@ -1,13 +1,22 @@
-ymaps.ready(mapRender);
-function mapRender(latitude1, longitude1, latitude2, longitude2) {
-  const myMap = new ymaps.Map('myMap', {
-    center: [latitude1, longitude1],
+const distanceRoute = document.querySelector('#distanceRoute');
+const timeRoute = document.querySelector('#timeRoute');
+const timeWithJamsRoute = document.querySelector('#timeWithJamsRoute');
+
+ymaps.ready(init);
+async function init() {
+  const response = await fetch('/product/getRoute', {
+    method: 'GET',
+  });
+  const result = await response.json();
+  const productInfo = result.order;
+  const myMap = new ymaps.Map('routeMap', {
+    center: [productInfo['Product.latitude'], productInfo['Product.longitude']],
     zoom: 10,
   });
 
   const route = ymaps.route([
-    [latitude1, longitude1],
-    [latitude2, longitude2],
+    [productInfo['Product.latitude'], productInfo['Product.longitude']],
+    [productInfo['User.latitude'], productInfo['User.longitude']],
   ]).then(
     (route) => {
       myMap.geoObjects.add(route);
@@ -17,45 +26,12 @@ function mapRender(latitude1, longitude1, latitude2, longitude2) {
       const routeTime = route.getTime();
       const routeTimeWithJams = route.getJamsTime(); //! с пробками
 
-      console.log(routeLength / 1000);
-      console.log(routeTime / 60);
-      console.log(routeTimeWithJams / 60);
+      distanceRoute.innerText = `Расстояние до заказчика: ${(routeLength / 1000).toFixed(1)} км.`;
+      timeRoute.innerText = `Время до заказчика без пробок: ${(routeTime / 60).toFixed(1)} мин.`;
+      timeWithJamsRoute.innerText = `Время в пути с пробками: ${(routeTimeWithJams / 60).toFixed(1)}  мин.`;
     },
     (error) => {
       alert(`Возникла ошибка: ${error.message}`);
     },
   );
 }
-
-mapRender(55.556164, 37.699218, 55.685168, 37.532616);
-module.exports = mapRender;
-
-// ymaps.ready(init);
-// function init() {
-//   // var myMap = new ymaps.Map('myMap', {
-//   //   center: [55.685168, 37.532616],
-//   //   zoom: 10
-//   // });
-
-//   let route = ymaps.route([
-//     [55.556164, 37.699218],
-//     [55.685168, 37.532616]
-//   ]).then(
-//     function (route) {
-//       // myMap.geoObjects.add(route);
-
-//       var routeLength = route.getLength(); // Длина маршрута
-      
-//       var routeTime = route.getTime();
-//       var routeTimeWithJams = route.getJamsTime(); //! с пробками
-
-//       console.log(routeLength / 1000)
-//       console.log(routeTime / 60)
-//       console.log(routeTimeWithJams / 60)
-
-//     },
-//     function (error) {
-//       alert("Возникла ошибка: " + error.message);
-//     },
-//   );
-// }

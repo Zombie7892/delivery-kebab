@@ -39,6 +39,8 @@ productRouter.get('/getRoute', async (req, res) => {
   try {
     const { userId } = req.session;
     const order = await Order.findOne({
+      where: { id: 1 },
+      attributes: [],
       include: [
         {
           model: Product,
