@@ -1,8 +1,9 @@
 const React = require('react');
 const Navbar = require('./Navbar');
 
-require("dotenv").config();
-const { YAPI_KEY,YAPI_KEY2  } = process.env;
+require('dotenv').config();
+
+const { YAPI_KEY } = process.env;
 
 module.exports = function Layout({
   children, login, seller, userId,
@@ -21,14 +22,14 @@ module.exports = function Layout({
         />
         <link type="image/x-icon" href="/assets/favicon.png" rel="shortcut icon" />
         <link rel="stylesheet" href="/css/style.css" />
-        
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
         <link
           href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&display=swap"
           rel="stylesheet"
-        ></link>
-      
+        />
+
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
           rel="stylesheet"
@@ -46,5 +47,3 @@ module.exports = function Layout({
     </html>
   );
 };
-
-        

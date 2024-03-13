@@ -26,8 +26,9 @@ const { Product } = require('../../db/models');
 
 productRouter.get('/new', async (req, res) => {
   try {
-    const { login } = req.session;
-    renderTemplate(NewProduct, { login }, res);
+    const { login, userId } = req.session;
+    const user = await User.findOne({ where: { id: userId } });
+    renderTemplate(NewProduct, { login, seller: user.seller }, res);
   } catch (error) {
     console.log(error);
   }
@@ -36,17 +37,19 @@ productRouter.get('/new', async (req, res) => {
 productRouter.post('/new', upload.single('photo'), async (req, res) => {
   try {
     const { login, userId } = req.session;
-    const { title, firstPrice, discount } = req.body;
+    const {
+      title, firstPrice, discount, latitude, longitude,
+    } = req.body;
     const currentPrice = (firstPrice * (100 - discount)) / 100;
     console.log(req.file);
     if (req.file) {
       const newProduct = await Product.create({
-        title, firstPrice, currentPrice, userId, photo: req.file.originalname,
+        title, firstPrice, currentPrice, userId, photo: req.file.originalname, latitude, longitude,
       });
       return res.redirect('/');
     }
     const newProduct = await Product.create({
-      title, firstPrice, currentPrice, userId, photo: 'default.jpeg',
+      title, firstPrice, currentPrice, userId, photo: 'default.jpeg', latitude, longitude,
     });
     return res.redirect('/');
   } catch (error) {

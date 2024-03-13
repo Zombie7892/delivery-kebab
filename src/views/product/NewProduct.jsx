@@ -1,10 +1,10 @@
 const React = require('react');
 const Layout = require('../Layout');
 
-module.exports = function NewProduct({ login }) {
+module.exports = function NewProduct({ login, seller }) {
   return (
-    <Layout login={login}>
-      <script defer src="/js/apiNew.js" />
+    <Layout login={login} seller={seller}>
+      <script defer src="/js/newProduct.js" />
 
       <div className="newProductContainer">
         <div className="newProductBox">
@@ -46,23 +46,18 @@ module.exports = function NewProduct({ login }) {
             />
 
             <input type="file" name="photo" />
+            <input type="text" className="mapHeight" name="longitude" style={{ display: 'none' }} />
+            <input type="text" className="mapWidth" name="latitude" style={{ display: 'none' }} />
+            <p>Укажите местоположение товара</p>
+            <div id="map" style={{ width: '550px', height: '300px', marginBottom: '10px' }} />
 
             <button type="submit" className="newProductSubmitBtn">
               Добавить
             </button>
           </form>
         </div>
-        {/* <div
-          id="map"
-          style={{
-            width: '550px',
-            height: '300px',
-            marginBottom: '10px',
-          }}
-        />
-        {' '} */}
+
       </div>
-      <script src="/js/newProduct.js" />
     </Layout>
   );
 };
