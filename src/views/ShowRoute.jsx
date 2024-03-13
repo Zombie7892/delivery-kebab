@@ -4,6 +4,7 @@ const Layout = require("./Layout");
 module.exports = function ShowRoute({ login, seller }) {
   return (
     <Layout login={login} seller={seller}>
+
       <div className="styleContainerShow">
         <div className="routeContainer">
           <h2 id="headerShow">Маршрут от вашего товара до заказчика:</h2>

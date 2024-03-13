@@ -137,7 +137,7 @@ productRouter.get('/getPositions', async (req, res) => {
   try {
     const { userId } = req.session;
     const products = await Product.findAll({
-      attributes: ['title', 'photo', 'firstPrice', 'currentPrice', 'latitude', 'longitude'],
+      attributes: ['id', 'title', 'photo', 'firstPrice', 'currentPrice', 'latitude', 'longitude'],
       raw: true,
     });
     const userCoords = await User.findOne({

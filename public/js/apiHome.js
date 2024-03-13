@@ -50,7 +50,13 @@ async function init() {
       alt="фото продукта"
       height="150"
       class="card-img-top"
-    /><h3 class="card-title">${placemark.title}</h3><h5 class="card-title" id="priceInProduct">${placemark.firstPrice}₽</h5><h5 class="card-title">${placemark.currentPrice}₽</h5>`,
+    /><h3 class="card-title">${placemark.title}</h3><h5 class="card-title" id="priceInProduct">${placemark.firstPrice}₽</h5><h5 class="card-title">${placemark.currentPrice}₽</h5><button
+    class="btn btn-outline-danger cardBtn mapOrderBtn"
+    type="button"
+    id=${placemark.id}
+  >
+    Выкупить
+  </button>`,
       hintContent: `${placemark.title}`,
     });
     myMap.geoObjects.add(myPlacemark);
