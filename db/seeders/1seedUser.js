@@ -5,7 +5,7 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Users', [
       {
-        login: 'Владислав',
+        login: 'Мастурбек',
         password: await bcrypt.hash('123', 10),
         email: '1@1.com',
         seller: true,
@@ -14,7 +14,7 @@ module.exports = {
         longitude: 37.802610,
       },
       {
-        login: 'Мастурбек',
+        login: 'Владислав',
         password: await bcrypt.hash('123', 10),
         email: '2@2.com',
         seller: false,
@@ -23,7 +23,7 @@ module.exports = {
         longitude: 37.774350,
       },
       {
-        login: 'Роман',
+        login: 'Ромаджан',
         password: await bcrypt.hash('123', 10),
         email: '3@3.com',
         seller: true,
@@ -32,7 +32,7 @@ module.exports = {
         longitude: 37.467014,
       },
       {
-        login: 'Ромаджан',
+        login: 'Роман',
         password: await bcrypt.hash('123', 10),
         email: '4@4.com',
         seller: false,
@@ -59,7 +59,7 @@ module.exports = {
         longitude: 37.427457,
       },
       {
-        login: 'Вася',
+        login: 'Шокирджон',
         password: await bcrypt.hash('123', 10),
         email: '7@7.com',
         seller: true,
@@ -68,7 +68,7 @@ module.exports = {
         longitude: 37.469766,
       },
       {
-        login: 'Шокирджон',
+        login: 'Вася',
         password: await bcrypt.hash('123', 10),
         email: '8@8.com',
         seller: false,

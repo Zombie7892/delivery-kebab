@@ -102,6 +102,11 @@ body {
   background-color: #181818;
 }
 
+#blackBoxShow{
+  height: 200px;
+  background-color: #000000;
+}
+
 #backgroundImg {
   width: 100%;
   height: auto;
@@ -262,7 +267,24 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 80px;
-  border: 1px solid rgb(105, 98, 98);
+  padding-top: 80px;
   border-radius: 15px;
+  font-size: large;
+  color: rgb(222, 218, 218);
+}
+
+.styleContainerShow {
+  height: 1000px;
+  background-image: url(https://img.freepik.com/free-photo/red-shirt-day-smiling-young-girl-touching-face-red-cap-wearing-shirt-bright-lipstick_140725-161741.jpg?t=st=1710336464~exp=1710340064~hmac=1693319a6548a42876668a504188ca6b9da22bc915fc5a82c4e00328fba8c3fc&w=1380);
+  background-size: cover;
+}
+
+.showText {
+  background-color: rgba(0, 0, 0, 0.79);
+  padding: 1%;
+  border-radius: 15px;
+}
+
+#headerShow {
+  color: #dc143cda;
 }
