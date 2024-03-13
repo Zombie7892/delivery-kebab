@@ -52,6 +52,7 @@ module.exports = function Cabinet({
           </div>
         </div>
         <div>
+
           <h3>Активные заказы:</h3>
           <div className="catalogCards">
             {orders.map((order) => (
@@ -59,15 +60,22 @@ module.exports = function Cabinet({
                 {/* <img className="card-img-top" src="#" alt="Фото товара" /> */}
                 <div className="card-body">
                   <h3 className="card-title">{order.Product.title}</h3>
-                  <h5 className="card-title" id="priceInProduct">
-                    {order.Product.firstPrice}
-                  </h5>
-                  <h5 className="card-title">
-                    {order.Product.currentPrice}
-                  </h5>
-                  {/* <button type="button" id={order.id} className="btn btn-outline-danger cardButton deleteOrder">
-                    Delete
-                  </button> */}
+                  <h6 className="card-title">
+                    Заказчик:
+                    {' '}
+                    {order.User.login}
+                  </h6>
+                  <h7 className="card-title">
+                    {order.User.number}
+                  </h7>
+                  <a href="/product/show">
+                    {' '}
+                    <button type="button" className="btn btn-outline-warning">
+                      Показать маршрут
+                    </button>
+                    {' '}
+
+                  </a>
                 </div>
               </div>
             ))}

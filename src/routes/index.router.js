@@ -21,7 +21,9 @@ indexRouter.get('/', async (req, res) => {
     userCoord.longitude = user.longitude;
     const finalProducts = products.map((product) => product.distance = calcCrow(product.latitude, product.longitude, user.latitude, user.longitude).time);
     const sortedByDistanceProducts = products.sort((a, b) => b.distance - a.distance);
-    renderTemplate(Home, { login, products: sortedByDistanceProducts, seller: user.seller,userCoord }, res);
+    renderTemplate(Home, {
+      login, products: sortedByDistanceProducts, seller: user.seller, userCoord,
+    }, res);
   } else {
     renderTemplate(Home, { userId, login, products }, res);
   }
@@ -40,6 +42,9 @@ indexRouter.get('/cabinet', checkUser, async (req, res) => {
         {
           model: Product,
           where: { userId },
+        },
+        {
+          model: User,
         },
       ],
     });

@@ -18,11 +18,46 @@ const upload = multer({ storage });
 const productRouter = require('express').Router();
 const renderTemplate = require('../utils/renderTemplate');
 const NewProduct = require('../views/product/NewProduct');
+const ShowRoute = require('../views/ShowRoute');
 
 const { checkUser } = require('../middlewares/common');
 
 const { User, Order } = require('../../db/models');
 const { Product } = require('../../db/models');
+
+productRouter.get('/show', async (req, res) => {
+  try {
+    const { login, userId } = req.session;
+    const user = await User.findOne({ where: { id: userId } });
+    renderTemplate(ShowRoute, { login, seller: user.seller }, res);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+productRouter.get('/getRoute', async (req, res) => {
+  try {
+    const { userId } = req.session;
+    const order = await Order.findOne({
+      include: [
+        {
+          model: Product,
+          where: { userId },
+          attributes: ['latitude', 'longitude'],
+        },
+        {
+          model: User,
+          attributes: ['latitude', 'longitude'],
+        },
+      ],
+      raw: true,
+    });
+
+    res.json({ order });
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 productRouter.get('/new', async (req, res) => {
   try {
