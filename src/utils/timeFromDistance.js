@@ -1,6 +1,8 @@
-module.exports = function timeFromDistance(distance, speed) {
+function timeFromDistance(distance, speed, distanceTimeFactor, dayPeriodFactor) {
   const time = distance / speed;
-  return time * 60;
+  return time * 60 * distanceTimeFactor * dayPeriodFactor;
 }
 
-// console.log(timeFromDistance(1.5, 20));
+module.exports = timeFromDistance;
+
+// console.log(timeFromDistance(10, 20, 2, 1.5));

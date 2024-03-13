@@ -1,14 +1,14 @@
-const React = require("react");
-const Layout = require("./Layout");
-const Product = require("./Product");
+const React = require('react');
+const Layout = require('./Layout');
+const Product = require('./Product');
 
-module.exports = function Home({ userId, login, products, seller, userCoord }) {
+module.exports = function Home({
+  userId, login, products, seller, userCoord,
+}) {
   return (
     <Layout login={login} seller={seller} userId={userId}>
       <script defer src="/js/addOrder.js" />
       <script defer src="/js/apiHome.js" />
-      <div id="latitude">{userCoord?.latitude}</div>
-      <div id="longitude">{userCoord?.longitude}</div>
       {login ? (
         <>
           <div className="backgroundHomeMenu">
@@ -71,8 +71,7 @@ module.exports = function Home({ userId, login, products, seller, userCoord }) {
         <>
           <div className="backgroundHome">
             <img className="advertising" src="/assets/img/mas.jpeg" />
-
-            <div className="centerList">
+<div className="centerList">
               <p className="description">
                 {" "}
                 Сайт delivery-kebab предоставляет готовый канал для продажи

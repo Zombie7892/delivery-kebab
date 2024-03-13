@@ -5,8 +5,6 @@ const Layout = require("../Layout");
 module.exports = function Register({ login }) {
   return (
     <Layout>
-      <script defer src="/js/apiReg.js" />
-
       <div className="styleContainer">
         <div className="container">
           <h3 className="regFormHeader">Регистрация</h3>
@@ -65,15 +63,18 @@ module.exports = function Register({ login }) {
             </select>
 
             {/* КАРТЫ>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */}
+            <input type="text" className="mapHeight" name="longitude" style={{ display: 'none' }} />
+            <input type="text" className="mapWidth" name="latitude" style={{ display: 'none' }} />
+            <p>Укажите на карте метку со своим адресом </p>
 
-            {/* <div
+            <div
               id="map"
               style={{
                 width: '550px',
                 height: '300px',
                 marginBottom: '10px',
               }}
-            /> */}
+            />
 
             <button type="submit" className="btn btn-outline-danger regBtn">
               Зарегистрироваться
