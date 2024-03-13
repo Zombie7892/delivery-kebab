@@ -3,6 +3,9 @@
   padding: 0;
   list-style-type: none;
   box-sizing: border-box;
+  font-family: "PT Sans Caption", sans-serif;
+  font-weight: 500;
+  font-style: normal;
 }
 
 body {
@@ -56,11 +59,10 @@ body {
   color: #dc143cda;
   float: left;
   margin: 0px;
-
   padding-left: 4%;
-
   padding-right: 30%;
 }
+
 .navStart {
   width: 100%;
 }
@@ -69,6 +71,7 @@ body {
   width: 60%;
   height: auto;
   margin: 1% 20%;
+  border-radius: 15px;
 }
 
 .loginBox,
@@ -110,6 +113,45 @@ body {
   background-image: url(https://img.freepik.com/free-photo/crop-plate-with-salad_23-2147753678.jpg?t=st=1710260237~exp=1710263837~hmac=b1edcab1cb720582757028a3bfe77c24e4a578fa574bcde9ba7a51daa26cd122&w=1380);
   background-size: cover;
   margin: -1% 0;
+}
+
+.backgroundHome {
+  background-image: url(https://fons.pibig.info/uploads/posts/2023-05/thumbs/1685509518_fons-pibig-info-p-yeda-na-temnom-fone-pinterest-42.jpg);
+  background-size: cover;
+  height: 1300px;
+}
+
+.backgroundHomeMenu {
+  /* background-image: url(https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-101851.jpg?t=st=1710315735~exp=1710319335~hmac=871064d247aa218a013a32b0de098bea5eca99a83ddcd0be117fb21cefc9242b&w=1380); */
+  /* background-size: cover; */
+  background-color: rgb(19, 12, 12);
+  height: 3800px;
+}
+
+.description {
+  font-size: large;
+  color: rgb(0, 0, 0);
+}
+
+.centerList {
+  width: 60%;
+  height: auto;
+  margin: auto;
+  background-color: rgb(255, 238, 218);
+  padding: 2%;
+  border-radius: 15px;
+  opacity: 0.6;
+}
+
+.centerListMenu {
+  width: 85%;
+  height: auto;
+  margin: auto;
+}
+
+#bigRedText {
+  color: #e30b36;
+  font-weight: 700;
 }
 
 .regFormHeader {
@@ -164,9 +206,11 @@ body {
   display: flex;
   flex-wrap: wrap;
   margin-top: 1%;
+  /* background-color: rgb(38, 16, 3); */
 }
 .card {
   margin: 2%;
+  opacity: 0.9;
 }
 
 #priceInProduct {
@@ -184,4 +228,9 @@ body {
 
 #marginH {
   margin-left: 1%;
+}
+
+#helloClient {
+  color: #dc143c;
+  text-align: center;
 }
