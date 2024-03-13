@@ -63,17 +63,23 @@ module.exports = function Register({ login }) {
             </select>
 
             {/* КАРТЫ>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */}
-            <input type="text" className="mapHeight" name="longitude" style={{ display: 'none' }} />
-            <input type="text" className="mapWidth" name="latitude" style={{ display: 'none' }} />
+            <input
+              type="text"
+              className="mapHeight"
+              name="longitude"
+              style={{ display: "none" }}
+            />
+            <input
+              type="text"
+              className="mapWidth"
+              name="latitude"
+              style={{ display: "none" }}
+            />
             <p>Укажите на карте метку со своим адресом </p>
 
             <div
               id="map"
-              style={{
-                width: '550px',
-                height: '300px',
-                marginBottom: '10px',
-              }}
+              style={{ width: "550px", height: "300px", marginBottom: "10px" , marginLeft: "-1%", marginBottom: "-2%"}}
             />
 
             <button type="submit" className="btn btn-outline-danger regBtn">

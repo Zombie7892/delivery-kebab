@@ -16,6 +16,7 @@ body {
 
 .container,
 .newProductContainer {
+  padding-top: 2%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -141,7 +142,7 @@ body {
   opacity: 0.6;
 }
 
-.centerListSeller{
+.centerListSeller {
   width: 60%;
   height: auto;
   margin-left: 15%;
@@ -252,6 +253,6 @@ body {
   height: 500px;
 }
 
-#marginPhoto{
-  margin: 5% 0;
+#marginPhoto {
+  margin: 2% 0;
 }
