@@ -1,12 +1,11 @@
-const React = require('react');
-const calcCrow = require('../utils/distance');
+const React = require("react");
+const calcCrow = require("../utils/distance");
 
 function Product({ product }) {
   return (
-    <div className="card" style={{ width: '18rem' }}>
+    <div className="card" style={{ width: "18rem" }}>
       {/* <img className="card-img-top" src="#" alt="Фото товара" /> */}
       <div className="card-body">
-
         <img
           src={`/assets/img/${product.photo}`}
           alt="фото продукта"
@@ -14,19 +13,18 @@ function Product({ product }) {
         />
         <h3 className="card-title">{product.title}</h3>
         <h5 className="card-title" id="priceInProduct">
-          {product.firstPrice}
-          ₽
+          {product.firstPrice}₽
         </h5>
-        <h5 className="card-title">
-          {product.currentPrice}
-          ₽
-        </h5>
-        <h3>
-          Время доставки:
-          {product.distance}
+        <h4 className="card-title">{product.currentPrice}₽</h4>
+        <h5>
+          Время доставки: {product.distance}
           мин.
-        </h3>
-        <button className="cardBtn" type="button" id={product.id}>
+        </h5>
+        <button
+          className="btn btn-outline-danger cardBtn"
+          type="button"
+          id={product.id}
+        >
           Выкупить
         </button>
         <h5 className="resMsg" id={`resMsg_${product.id}`} />

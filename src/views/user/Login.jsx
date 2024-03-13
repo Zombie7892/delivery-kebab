@@ -16,6 +16,7 @@ module.exports = function Login({ login }) {
                 name="email"
                 type="text"
                 className="form-control"
+                autoComplete="off"
                 id="emailInput"
                 placeholder="Почта*"
               />
@@ -24,6 +25,7 @@ module.exports = function Login({ login }) {
                 name="password"
                 type="password"
                 className="form-control"
+                autoComplete="off"
                 id="passwordInput"
                 placeholder="Пароль*"
               />

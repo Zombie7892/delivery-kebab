@@ -36,17 +36,16 @@ module.exports = function Register({ login }) {
               className="form-control"
               autoComplete="off"
               id="passwordInput"
-              placeholder="Пароль*"
+              placeholder="Пароль от 4-х символов*"
             />
-            <label htmlFor="numberInput" className="form-label"></label>
+            <label htmlFor="numberInput" className="form-label">Номер телефона в формате +7 (999) 123-23-23:</label>
             <input
               name="number"
               type="text"
               className="form-control"
               autoComplete="off"
               id="numberInput"
-              placeholder="Номер телефона*"
-              // placeholder="+7 (999) 123-23-23"
+              placeholder="Телефон*"
             />
 
             <select
