@@ -93,4 +93,22 @@ productRouter.delete('/order/delete/:id', checkUser, async (req, res) => {
   }
 });
 
+productRouter.get('/getPositions', async (req, res) => {
+  try {
+    const { userId } = req.session;
+    const products = await Product.findAll({
+      attributes: ['title', 'photo', 'firstPrice', 'currentPrice', 'latitude', 'longitude'],
+      raw: true,
+    });
+    const userCoords = await User.findOne({
+      where: { id: userId },
+      attributes: ['latitude', 'longitude'],
+      raw: true,
+    });
+    res.json({ products, userCoords });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 module.exports = productRouter;
