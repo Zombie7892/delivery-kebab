@@ -1,15 +1,17 @@
-const React = require("react");
+const React = require('react');
 
-const Layout = require("../Layout");
+const Layout = require('../Layout');
 
 module.exports = function Register({ login }) {
   return (
     <Layout>
+            <script defer src="/js/apiReg.js" />
+
       <div className="styleContainer">
         <div className="container">
           <h3 className="regFormHeader">Регистрация</h3>
           <form id="regForm">
-            <label htmlFor="emailInput" className="form-label"></label>
+            <label htmlFor="emailInput" className="form-label" />
             <input
               name="email"
               type="text"
@@ -19,7 +21,7 @@ module.exports = function Register({ login }) {
               placeholder="Почта*"
             />
 
-            <label htmlFor="loginInput" className="form-label"></label>
+            <label htmlFor="loginInput" className="form-label" />
             <input
               name="login"
               type="text"
@@ -29,7 +31,7 @@ module.exports = function Register({ login }) {
               placeholder="Имя*"
             />
 
-            <label htmlFor="passwordInput" className="form-label"></label>
+            <label htmlFor="passwordInput" className="form-label" />
             <input
               name="password"
               type="password"
@@ -59,6 +61,17 @@ module.exports = function Register({ login }) {
               <option value="true">Курьер</option>
               <option value="false">Покупатель</option>
             </select>
+
+            {/* КАРТЫ>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */}
+
+            {/* <div
+              id="map"
+              style={{
+                width: '550px',
+                height: '300px',
+                marginBottom: '10px',
+              }}
+            /> */}
 
             <button type="submit" className="btn btn-outline-danger regBtn">
               Зарегистрироваться

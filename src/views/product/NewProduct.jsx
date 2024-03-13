@@ -4,9 +4,17 @@ const Layout = require('../Layout');
 module.exports = function NewProduct({ login }) {
   return (
     <Layout login={login}>
+      <script defer src="/js/apiNew.js" />
+
       <div className="newProductContainer">
         <div className="newProductBox">
-          <form method="POST" action="/product/new" id="newProductForm" className="newProductForm" encType="multipart/form-data">
+          <form
+            method="POST"
+            action="/product/new"
+            id="newProductForm"
+            className="newProductForm"
+            encType="multipart/form-data"
+          >
             <label htmlFor="nameInput" className="form-label">
               Название продукта
             </label>
@@ -44,7 +52,15 @@ module.exports = function NewProduct({ login }) {
             </button>
           </form>
         </div>
-        <div className="mapBox">MAP</div>
+        {/* <div
+          id="map"
+          style={{
+            width: '550px',
+            height: '300px',
+            marginBottom: '10px',
+          }}
+        />
+        {' '} */}
       </div>
       <script src="/js/newProduct.js" />
     </Layout>
