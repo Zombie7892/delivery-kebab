@@ -8,11 +8,11 @@ module.exports = {
       },
       {
         productId: 2,
-        userId: 2,
+        userId: 4,
       },
       {
         productId: 3,
-        userId: 2,
+        userId: 6,
       },
       {
         productId: 4,
@@ -20,15 +20,15 @@ module.exports = {
       },
       {
         productId: 5,
-        userId: 4,
+        userId: 2,
       },
       {
         productId: 6,
-        userId: 4,
+        userId: 8,
       },
       {
         productId: 7,
-        userId: 4,
+        userId: 6,
       },
       {
         productId: 8,
@@ -68,14 +68,6 @@ module.exports = {
       },
       {
         productId: 17,
-        userId: 10,
-      },
-      {
-        productId: 18,
-        userId: 10,
-      },
-      {
-        productId: 19,
         userId: 10,
       },
       {

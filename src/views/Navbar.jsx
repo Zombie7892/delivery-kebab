@@ -31,6 +31,9 @@ function Navbar({ login, seller, userId }) {
                   <a href="/client">Мои заказы</a>
                 </li>
                 <li className="navbarLi">
+                  <a href="/product/search">Поиск по названию</a>
+                </li>
+                <li className="navbarLi">
                   <a href="/">На главную</a>
                 </li>
               </ul>

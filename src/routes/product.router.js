@@ -117,7 +117,7 @@ productRouter.post('/order/:id', checkUser, async (req, res) => {
       res.json({ err: 'К сожалению товар уже кто-то выкупил' });
     } else {
       await Order.create({ userId, productId: Number(id) });
-      res.json({ msg: 'Товар успешно добален в заказ!' });
+      res.json({ msg: 'Товар успешно добавлен в заказ!' });
     }
   } catch (error) {
     console.log(error);
