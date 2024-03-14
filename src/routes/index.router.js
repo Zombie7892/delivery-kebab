@@ -10,6 +10,7 @@ const calcCrow = require('../utils/distance');
 
 const { User, Product, Order } = require('../../db/models');
 const { secureRoute, checkUser } = require('../middlewares/common');
+const EditAddress = require('../views/EditAddress');
 
 indexRouter.get('/', async (req, res) => {
   const { login, userId } = req.session;
@@ -65,13 +66,30 @@ indexRouter.get('/client', checkUser, async (req, res) => {
       include: [{ model: Product }],
     });
     renderTemplate(Client, {
-      login, userId, orders,
+      login, userId, orders, user,
     }, res);
   }
 });
 
 indexRouter.get('/404', (req, res) => {
   renderTemplate(Page404, { }, res);
+});
+
+indexRouter.get('/:id', checkUser, async (req, res) => {
+  const { id } = req.params;
+  const { login, userId } = req.session;
+  try {
+    const user = await User.findOne({ where: { id } });
+    if (user.id !== userId) {
+      res.redirect('/');
+    } else {
+      renderTemplate(EditAddress, {
+        login, seller: user.seller, user,
+      }, res);
+    }
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 module.exports = indexRouter;

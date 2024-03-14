@@ -12,6 +12,7 @@ const Login = require('../views/user/Login');
 const { checkUser } = require('../middlewares/common');
 
 const { User } = require('../../db/models');
+const EditAddress = require('../views/EditAddress');
 
 userRouter.get('/register', async (req, res) => {
   try {
@@ -41,7 +42,7 @@ userRouter.post(
         return res.status(400).json({ err: errors.array() });
       }
       const {
-        email, password, login, number, seller, latitude, longitude
+        email, password, login, number, seller, latitude, longitude,
       } = req.body;
       const user = await User.findOne({
         where: {
@@ -63,8 +64,8 @@ userRouter.post(
           login,
           seller,
           number,
-          latitude, 
-          longitude
+          latitude,
+          longitude,
         });
         req.session.login = newUser.login;
         req.session.seller = newUser.seller;
@@ -120,6 +121,28 @@ userRouter.post('/login', async (req, res) => {
     }
   } catch (error) {
     renderTemplate(Page404, { error }, res);
+  }
+});
+
+userRouter.post('/editAddress/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { userId } = req.session;
+    const { latitude, longitude } = req.body;
+    const user = await User.findOne({ where: { id } });
+    if (user.id !== userId) {
+      res.redirect('/');
+    } else {
+      await user.update({
+        latitude, longitude,
+      });
+      req.session.latitude = latitude;
+      req.session.longitude = longitude;
+      req.session.save();
+      res.redirect('/');
+    }
+  } catch (error) {
+    console.log(error);
   }
 });
 
