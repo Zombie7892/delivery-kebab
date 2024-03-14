@@ -155,7 +155,7 @@ body {
 }
 
 .centerListCabinet {
-  width: 90%;
+  width: 70%;
   height: auto;
   margin: auto;
   padding: 2%;
@@ -183,9 +183,13 @@ body {
   font-weight: 700;
 }
 
+#bigRedEA{
+margin-left: 10%;
+  color: #e30b36;
+}
+
 .redTextCab {
   color: #e30b36;
-  /* font-weight: 500; */
 }
 
 .regFormHeader {
@@ -313,4 +317,13 @@ body {
   text-align: center;
   padding-top: 1%;
   margin-bottom: -3%;
+}
+
+.placeClient {
+  margin-top: 1%;
+}
+
+.editAddressBackground {
+  background-color: rgb(19, 12, 12);
+  height: 900px;
 }
