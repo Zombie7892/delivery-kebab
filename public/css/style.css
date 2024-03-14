@@ -102,7 +102,7 @@ body {
   background-color: #181818;
 }
 
-#blackBoxShow{
+#blackBoxShow {
   height: 200px;
   background-color: #000000;
 }
@@ -132,6 +132,13 @@ body {
   height: 6000px;
 }
 
+.backgroundCab {
+  background-image: url(https://fons.pibig.info/uploads/posts/2023-05/thumbs/1685509563_fons-pibig-info-p-yeda-na-temnom-fone-pinterest-49.jpg);
+  background-size: cover;
+  height: 1400px;
+  /* height: 1000%; */
+}
+
 .description {
   font-size: large;
   color: rgb(0, 0, 0);
@@ -145,6 +152,13 @@ body {
   padding: 2%;
   border-radius: 15px;
   opacity: 0.6;
+}
+
+.centerListCabinet {
+  width: 90%;
+  height: auto;
+  margin: auto;
+  padding: 2%;
 }
 
 .centerListSeller {
@@ -169,6 +183,11 @@ body {
   font-weight: 700;
 }
 
+.redTextCab {
+  color: #e30b36;
+  /* font-weight: 500; */
+}
+
 .regFormHeader {
   color: #dc143cda;
   text-align: center;
@@ -184,6 +203,10 @@ body {
 .logBtn,
 .regBtn {
   margin-top: 7%;
+}
+
+.yellowBtnCabActive {
+  margin: 4% 0;
 }
 
 .newProductSubmitBtn {
@@ -287,4 +310,7 @@ body {
 
 #headerShow {
   color: #dc143cda;
+  text-align: center;
+  padding-top: 1%;
+  margin-bottom: -3%;
 }
