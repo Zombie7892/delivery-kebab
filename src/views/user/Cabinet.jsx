@@ -17,6 +17,7 @@ module.exports = function Cabinet({ login, userId, products, orders, seller }) {
               <a
                 href="/product/new"
                 type="button"
+                id="marginPhoto"
                 className="btn btn-outline-warning"
               >
                 Добавить новый заказ
@@ -57,6 +58,7 @@ module.exports = function Cabinet({ login, userId, products, orders, seller }) {
               Активные заказы:
             </h3>
             <div className="catalogCards Order">
+              
               {orders.map((order) => (
                 <div className="card" key={order.id} id="styleForCardCabinet">
                   {/* <img className="card-img-top" src="#" alt="Фото товара" /> */}
