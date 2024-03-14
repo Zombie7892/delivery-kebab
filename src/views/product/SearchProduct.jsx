@@ -7,6 +7,7 @@ module.exports = function SearchProduct({ login, seller, userId, products }) {
     <Layout login={login} seller={seller} userId={userId}>
       <script defer src="/js/searchProduct.js" />
       {/* <div className="styleContainer"> */}
+      <div className='container'>
       <div className="searchProductContainer">
         <div className="searchProductBox">
           <form
@@ -15,9 +16,6 @@ module.exports = function SearchProduct({ login, seller, userId, products }) {
             className="searchProductForm"
             encType="multipart/form-data"
           >
-            <label htmlFor="searchProduct" className="form-label">
-              Искать
-            </label>
             <input
               name="searchProduct"
               type="text"
@@ -38,6 +36,7 @@ module.exports = function SearchProduct({ login, seller, userId, products }) {
         {products?.reverse().map((product) => (
           <Product key={product.id} product={product} />
         ))}
+      </div>
       </div>
     </Layout>
   );

@@ -129,12 +129,30 @@ body {
 
 .backgroundHomeMenu {
   background-color: rgb(19, 12, 12);
-  height: 6000px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .backgroundCab {
   background-image: url(https://fons.pibig.info/uploads/posts/2023-05/thumbs/1685509563_fons-pibig-info-p-yeda-na-temnom-fone-pinterest-49.jpg);
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  height: 1400px;
+  /* height: 1000%; */
+}
+
+.backgroundCabClient {
+  background-image: url(https://fons.pibig.info/uploads/posts/2023-05/thumbs/1685509563_fons-pibig-info-p-yeda-na-temnom-fone-pinterest-49.jpg);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
   height: 1400px;
   /* height: 1000%; */
 }
@@ -246,8 +264,10 @@ margin-left: 10%;
 .catalogCards {
   float: left;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   margin-top: 1%;
+  width: 100%;
 }
 .card {
   margin: 2%;
@@ -326,4 +346,34 @@ margin-left: 10%;
 .editAddressBackground {
   background-color: rgb(19, 12, 12);
   height: 900px;
+}
+
+.myProductsBox {
+  display: flex;
+}
+
+.userGreetingBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.searchProductContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: left;
+}
+
+.searchProductForm {
+  display: flex;
+  margin: 50px;
+  gap: 15px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: left;
 }
