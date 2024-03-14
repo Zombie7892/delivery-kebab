@@ -4,7 +4,8 @@ const timeWithJamsRoute = document.querySelector('#timeWithJamsRoute');
 
 ymaps.ready(init);
 async function init() {
-  const response = await fetch('/product/getRoute', {
+  const div = document.querySelector('.styleContainerShow')
+  const response = await fetch(`/product/getRoute/${div.id}`, {
     method: 'GET',
   });
   const result = await response.json();

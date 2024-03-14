@@ -25,21 +25,22 @@ const { checkUser } = require('../middlewares/common');
 const { User, Order } = require('../../db/models');
 const { Product } = require('../../db/models');
 
-productRouter.get('/show', async (req, res) => {
+productRouter.get('/show/:id', async (req, res) => {
   try {
     const { login, userId } = req.session;
     const user = await User.findOne({ where: { id: userId } });
-    renderTemplate(ShowRoute, { login, seller: user.seller }, res);
+    const order = await Order.findOne({ where: { id: req.params.id } });
+    renderTemplate(ShowRoute, { login, seller: user.seller, order }, res);
   } catch (error) {
     console.log(error);
   }
 });
 
-productRouter.get('/getRoute', async (req, res) => {
+productRouter.get('/getRoute/:id', async (req, res) => {
   try {
     const { userId } = req.session;
     const order = await Order.findOne({
-      where: { id: 1 },
+      where: { id: req.params.id },
       attributes: [],
       include: [
         {
@@ -109,10 +110,10 @@ productRouter.post('/order/:id', checkUser, async (req, res) => {
     const { id } = req.params;
     const { userId } = req.session;
     const order = await Order.findOne({
-      where: { userId, productId: Number(id) },
+      where: { productId: Number(id) },
     });
     if (order) {
-      res.json({ err: 'Вы уже добавили этот товар в свой заказ!' });
+      res.json({ err: 'К сожалению товар уже кто-то выкупил' });
     } else {
       await Order.create({ userId, productId: Number(id) });
       res.json({ msg: 'Товар успешно добален в заказ!' });
@@ -148,6 +149,22 @@ productRouter.get('/getPositions', async (req, res) => {
     res.json({ products, userCoords });
   } catch (error) {
     console.log(error);
+  }
+});
+
+productRouter.delete('/order/delivered/:id', checkUser, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const order = await Order.findOne({ where: { id }, include: [{ model: Product }], raw: true });
+    console.log(order);
+
+    const productId = order['Product.id'];
+    await Order.destroy({ where: { id } });
+    await Product.destroy({ where: { id: productId } });
+
+    res.json({ success: true, productId });
+  } catch (error) {
+    console.log(error, 'ошиибка при удалении из записей');
   }
 });
 
