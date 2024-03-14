@@ -1,7 +1,7 @@
 const React = require('react');
 const Layout = require('../Layout');
 
-module.exports = function Client({ login, orders }) {
+module.exports = function Client({ login, orders, user }) {
   return (
     <Layout login={login}>
       <script defer src="/js/deleteOrder.js" />
@@ -12,7 +12,7 @@ module.exports = function Client({ login, orders }) {
             Пользователь:
             {login}
           </h2>
-          <h3>Изменить место доставки:</h3>
+          <a href={`/${user.id}`}><h3>Изменить место доставки</h3></a>
           {/* <div>карта</div> */}
         </div>
         <div className="catalogCards">
