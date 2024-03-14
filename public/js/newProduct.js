@@ -1,4 +1,6 @@
 ymaps.ready(init);
+const discount = document.querySelector('#discount');
+const firstPriceInput = document.querySelector('#firstPriceInput');
 
 async function init() {
   // Создание карты.
@@ -78,3 +80,27 @@ async function init() {
     updateInputCoords(coords);
   });
 }
+
+discount.addEventListener('input', (e) => {
+  if (/[^0-9]/.test(e.target.value)) {
+    e.target.value = 50;
+  }
+  if (e.target.value.length > 3) {
+    e.target.value = e.target.value.slice(0, 3);
+  }
+  if (e.target.value < 0 || e.target.value > 100) {
+    e.target.value = 50;
+  }
+  if (e.target.value.slice(0, 1) === '0') {
+    e.target.value = '';
+  }
+});
+
+firstPriceInput.addEventListener('input', (e) => {
+  if (/[^0-9]/.test(e.target.value)) {
+    e.target.value = '';
+  }
+  if (e.target.value.slice(0, 1) === '0') {
+    e.target.value = '';
+  }
+})
