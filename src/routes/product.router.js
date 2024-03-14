@@ -1,8 +1,8 @@
 const { body, validationResult } = require('express-validator');
 
 const { Op } = require('sequelize');
-
 const multer = require('multer');
+const calcCrow = require('../utils/distance');
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
@@ -24,6 +24,7 @@ const { checkUser } = require('../middlewares/common');
 
 const { User, Order } = require('../../db/models');
 const { Product } = require('../../db/models');
+const SearchProduct = require('../views/product/SearchProduct');
 
 productRouter.get('/show/:id', async (req, res) => {
   try {
@@ -156,7 +157,7 @@ productRouter.delete('/order/delivered/:id', checkUser, async (req, res) => {
   try {
     const { id } = req.params;
     const order = await Order.findOne({ where: { id }, include: [{ model: Product }], raw: true });
-    console.log(order);
+    // console.log(order);
 
     const productId = order['Product.id'];
     await Order.destroy({ where: { id } });
@@ -165,6 +166,47 @@ productRouter.delete('/order/delivered/:id', checkUser, async (req, res) => {
     res.json({ success: true, productId });
   } catch (error) {
     console.log(error, 'ошиибка при удалении из записей');
+  }
+});
+
+productRouter.get('/search', async (req, res) => {
+  try {
+    const { login, userId } = req.session;
+    const user = await User.findOne({ where: { id: userId }, raw: true });
+
+    const { searchProduct } = req.query;
+    console.log('sdfdfsdfssdfdfsdfsdfssdfsdfsdfsdfsdfsdfsdfdfs', searchProduct);
+    if (searchProduct == undefined) {
+      renderTemplate(SearchProduct, { login, seller: user.seller, userId }, res);
+      return;
+    }
+    if (searchProduct === '') {
+      const products = await Product.findAll({ raw: true });
+      const userCoord = {};
+      userCoord.latitude = user.latitude;
+      userCoord.longitude = user.longitude;
+      products.forEach((product) => product.distance = calcCrow(product.latitude, product.longitude, user.latitude, user.longitude).time);
+      products.sort((a, b) => b.distance - a.distance);
+      console.log(products);
+      renderTemplate(SearchProduct, {
+        login, seller: user.seller, userId, products,
+      }, res);
+      return;
+    }
+    if (searchProduct) {
+      const allProduct = await Product.findAll({ raw: true });
+      const userCoord = {};
+      userCoord.latitude = user.latitude;
+      userCoord.longitude = user.longitude;
+      const products = allProduct.filter((product) => product.title.toLowerCase().includes(searchProduct.toLowerCase()));
+      products.forEach((product) => product.distance = calcCrow(product.latitude, product.longitude, user.latitude, user.longitude).time);
+      products.sort((a, b) => b.distance - a.distance);
+      renderTemplate(SearchProduct, {
+        login, seller: user.seller, userId, products,
+      }, res);
+    }
+  } catch (error) {
+    console.log(error);
   }
 });
 
